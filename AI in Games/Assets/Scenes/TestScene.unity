@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.054232564, y: -0.9314946, z: 0.32418147, w: 0.15583047}
+  m_LocalPosition: {x: -0.00000020785778, y: 10.8, z: 20.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 38.378, y: -161.006, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7408146987094307429, guid: 749a7a7016346c740ba50ac87d7207a4, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 8601163583084138439, guid: 749a7a7016346c740ba50ac87d7207a4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -599,8 +603,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4170113183383359086, guid: 749a7a7016346c740ba50ac87d7207a4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1828138359164412453}
   m_SourcePrefab: {fileID: 100100000, guid: 749a7a7016346c740ba50ac87d7207a4, type: 3}
+--- !u!1 &1828138359164412452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4170113183383359086, guid: 749a7a7016346c740ba50ac87d7207a4, type: 3}
+  m_PrefabInstance: {fileID: 1828138359164412451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1828138359164412453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828138359164412452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9443b998ee9b2449906a2292753e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  moveSpeed: 15
 --- !u!1001 &4278367126195765357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 5633089925281948427, guid: ca38f66cad849d0419ab5a09d82cfa5f, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570034816938253397, guid: ca38f66cad849d0419ab5a09d82cfa5f, type: 3}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
