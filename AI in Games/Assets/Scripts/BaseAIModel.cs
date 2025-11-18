@@ -227,6 +227,7 @@ public class BaseAIModel : MonoBehaviour
         {
             if (wallPoints < -0.5f)
             {
+                Debug.Log(wallPoints);
                 reward = -0.0005f * wallAvoidanceSensitivity * 10f;
                 totalReward += reward;
                 wallPoints += reward;
