@@ -1,3 +1,4 @@
+using NUnit.Framework.Internal;
 using UnityEngine;
 
 public class BaseAIModel : MonoBehaviour
@@ -59,6 +60,8 @@ public class BaseAIModel : MonoBehaviour
     private float wallAvoidanceSensitivity = 0.05f;
 
     public float wallAvoidanceDistance = 1.0f;
+
+    public TestManager testManager;
 
 
 
@@ -297,6 +300,7 @@ public class BaseAIModel : MonoBehaviour
     {
         // Reset variables and state, respawn as needed
         InitializeEpisode();
+        testManager.SpawnRandomPositions();
 
         // I'll implement respawn logic after game manager is implemented
     }
