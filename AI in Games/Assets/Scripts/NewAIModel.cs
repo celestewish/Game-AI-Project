@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class NewAIModel : MonoBehaviour
 {
     public float chaseDistance = 5f;
@@ -62,6 +62,12 @@ public class NewAIModel : MonoBehaviour
 
     public TestManager testManager;
 
+    public AStarPathfinder pathfinder;   // assign in Inspector
+
+    // pathfollowing
+    private List<Vector3> currentPath;
+    private int pathIndex = 0;
+    public float waypointStopDistance = 0.1f;
 
 
     void Start()
@@ -146,20 +152,26 @@ public class NewAIModel : MonoBehaviour
             Debug.LogWarning("Player Transform is not assigned.");
             return;
         }
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (IsWallAhead(roamDirection))
-            PickNewRoamDirection();
+        // If no path, pick random roam destination
+        if (currentPath == null || pathIndex >= currentPath.Count)
+        {
+            Vector2 randomCircle = Random.insideUnitCircle * roamRadius;
+            Vector3 dest = transform.position + new Vector3(randomCircle.x, 0, randomCircle.y);
+            SetPathTo(dest);
+        }
 
-        if (roamTimer <= 0f)
-            PickNewRoamDirection();
-
-        transform.position += roamDirection * roamSpeed * Time.deltaTime;
-        roamTimer -= Time.deltaTime;
+        FollowPath(roamSpeed);
 
         if (distanceToPlayer < chaseDistance)
+        {
+            ClearPath();
             currentState = State.Chasing;
+        }
     }
+
     // Chases player
     void Chasing()
     {
@@ -168,39 +180,49 @@ public class NewAIModel : MonoBehaviour
             Debug.LogWarning("Player Transform is not assigned.");
             return;
         }
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
 
-        if (IsWallAhead(directionToPlayer))
+        // Periodically re-path to the moving player
+        if (currentPath == null || pathIndex >= currentPath.Count ||
+            Vector3.Distance(currentPath[currentPath.Count - 1], player.position) > 1.0f)
         {
-            PickNewRoamDirection();
-            transform.position += roamDirection * roamSpeed * Time.deltaTime;
+            SetPathTo(player.position);
         }
-        else
-        {
-            transform.position += directionToPlayer * chaseSpeed * Time.deltaTime;
-        }
+
+        FollowPath(chaseSpeed);
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if (distanceToPlayer > chaseDistance)
+        {
+            lastKnownPlayerPos = player.position;
+            ClearPath();
             currentState = State.Patrolling;
+            investigateTimer = 0f;
+        }
     }
+
     // Looks for player
     void Patrolling()
     {
         investigateTimer += Time.deltaTime;
 
-        if (IsWallAhead(patrolDirection))
-            PickNewPatrolDirection();
+        if (currentPath == null || pathIndex >= currentPath.Count ||
+            Vector3.Distance(transform.position, lastKnownPlayerPos) > patrolRadius)
+        {
+            // Pick a new random patrol target around last known position
+            Vector2 randomCircle = Random.insideUnitCircle * patrolRadius;
+            Vector3 dest = lastKnownPlayerPos + new Vector3(randomCircle.x, 0, randomCircle.y);
+            SetPathTo(dest);
+        }
 
-        if (patrolTimer <= 0f)
-            PickNewPatrolDirection();
+        FollowPath(patrolSpeed);
 
-        transform.position += patrolDirection * patrolSpeed * Time.deltaTime;
-        patrolTimer -= Time.deltaTime;
-
-        if (Vector3.Distance(transform.position, lastKnownPlayerPos) > patrolRadius)
-            PickNewPatrolDirection();
+        if (investigateTimer > investigateTime)
+        {
+            ClearPath();
+            currentState = State.Idle;
+        }
     }
+
     // Picks a new direction based on a radius
     void PickNewPatrolDirection()
     {
@@ -324,5 +346,40 @@ public class NewAIModel : MonoBehaviour
         patrolDirection = Vector3.zero;
         investigateTimer = 0f;
     }
+
+    void FollowPath(float speed)
+    {
+        if (currentPath == null || currentPath.Count == 0) return;
+        if (pathIndex >= currentPath.Count) return;
+
+        Vector3 targetPos = currentPath[pathIndex];
+        Vector3 flatTarget = new Vector3(targetPos.x, transform.position.y, targetPos.z);
+
+        Vector3 dir = (flatTarget - transform.position);
+        float dist = dir.magnitude;
+        if (dist < waypointStopDistance)
+        {
+            pathIndex++;
+            return;
+        }
+
+        dir.Normalize();
+        transform.position += dir * speed * Time.deltaTime;
+    }
+
+    void SetPathTo(Vector3 destination)
+    {
+        if (pathfinder == null) return;
+
+        currentPath = pathfinder.FindPath(transform.position, destination);
+        pathIndex = 0;
+    }
+
+    void ClearPath()
+    {
+        currentPath = null;
+        pathIndex = 0;
+    }
+
 }
 
