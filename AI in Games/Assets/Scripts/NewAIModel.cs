@@ -330,6 +330,10 @@ public class NewAIModel : MonoBehaviour
         reward = 0f;
         wallPoints = 0f;
         episodeTimer = 0f;
+        investigateTimer = 0f;
+        ClearPath();
+        currentState = State.Idle;
+        episodeActive = true;
     }
     // Resets all stats
     void InitializeEpisode()
