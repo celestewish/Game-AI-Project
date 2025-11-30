@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TestManager : MonoBehaviour
@@ -5,8 +6,10 @@ public class TestManager : MonoBehaviour
     public int numberOfTrials = 500;
     int currentTrial = 0;
 
-    float mapWidth = 6f;
-    float mapDepth = 4.7f;
+    public float minimumDistance = 4f;
+
+    float mapWidth;
+    float mapDepth;
 
     public Transform player;
     public Transform enemy;
@@ -14,7 +17,19 @@ public class TestManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameObject plane = GameObject.Find("Plane");
+
+        Transform planeTransform = plane.GetComponent<Transform>();
+        MeshFilter meshFilter = plane.GetComponent<MeshFilter>();
+
+        Vector3 bound = meshFilter.mesh.bounds.size;
+
+        mapWidth = (bound.x * planeTransform.localScale.x) - 4f;
+        mapDepth = (bound.z * planeTransform.localScale.z) - 4f;
+
+        Debug.Log("mapwidth: " + mapWidth);
+        Debug.Log("mapdepth: " + mapDepth);
+
     }
 
     // Update is called once per frame
@@ -24,11 +39,35 @@ public class TestManager : MonoBehaviour
 
     public void SpawnRandomPositions()
     {
-        Vector3 playerPosition = new Vector3(Random.Range(0, mapWidth), 0.5f, Random.Range(0, mapDepth) + 2);
-        // Change this V
-        Vector3 enemyPosition = new Vector3(-Random.Range(0, mapWidth), 0.5f, -Random.Range(0, mapDepth) - 2);
+        float rangeX = mapWidth / 2;
+        float rangeZ = mapDepth / 2;
 
-        player.position = playerPosition;
-        enemy.position = enemyPosition;
+        Math.Floor(rangeX);
+        Math.Floor(rangeZ);
+
+        Debug.Log("RangeX: " + rangeX);
+        Debug.Log("RangeZ: " + rangeZ);
+
+
+        float playerX = UnityEngine.Random.Range(-rangeX, rangeX);
+        float playerZ = UnityEngine.Random.Range(-rangeZ, rangeZ);
+        player.position = new Vector3(playerX, 0.5f, playerZ);
+
+        int count = 0;
+
+        do
+        {
+            float enemyX = UnityEngine.Random.Range(-rangeX, rangeX);
+            float enemyZ = UnityEngine.Random.Range(-rangeZ, rangeZ);
+            enemy.position = new Vector3(enemyX, 0.5f, enemyZ);
+            count++;
+        }
+        while(Vector3.Distance(player.position, enemy.position) < minimumDistance && count < 50);
+
+        // player.position = new Vector3(20f, 0.5f, 20f);
+        // enemy.position = new Vector3(-20f, 0.5f, -20f);
+
+
     }
+
 }
