@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using System;
 
-public class BaseAIModel : MonoBehaviour
+public class NewAIModel : MonoBehaviour
 {
     public float chaseDistance = 5f;
     public float investigateTime = 5f;
-    public float episodeTimeLimit = 30f;
+    public float episodeTimeLimit = 5f;
     public Transform player;
 
     private enum State { Idle, Chasing, Patrolling }
@@ -91,6 +91,7 @@ public class BaseAIModel : MonoBehaviour
             EndEpisode();
         }
     }
+
     // Title
     void StateMachine()
     {
@@ -260,35 +261,42 @@ public class BaseAIModel : MonoBehaviour
     // Gives the bot his final rewards
     void EndEpisode()
     {
-        totalReward = Mathf.Clamp(totalReward, -1f, 1f);
-
-        AdaptBehavior();
-
-        episodeActive = false;
+        totalReward = Mathf.Clamp(totalReward, -1f, 5f);
 
         File.AppendAllText(filePath, $"{episodeTimer}{Environment.NewLine}");
 
+        AdaptBehavior();
+
         SavePerformanceData();
 
-        Invoke("RestartEpisode", 1.0f);
+        RestartEpisode();
     }
     // Title
     void AdaptBehavior()
     {
-        // Adjust roam speed
-        roamSpeed += totalReward * roamSpeedAdjustRate;
+        float adjustmentFactor = Mathf.Abs(totalReward);
+
+        //if doing well try to become easier
+        if (totalReward > 0)
+        {
+            roamSpeed -= adjustmentFactor * roamSpeedAdjustRate * 0.5f;
+            chaseSpeed -= adjustmentFactor * chaseSpeedAdjustRate * 0.5f;
+            patrolMoveDuration -= adjustmentFactor * patrolDurationAdjustRate * 0.5f;
+            wallAvoidanceSensitivity -= adjustmentFactor * wallAvoidanceAdjustRate * 0.5f;
+        }
+        //if doing poorly become harder to escape
+        else
+        {
+            roamSpeed += adjustmentFactor * roamSpeedAdjustRate;
+            chaseSpeed += adjustmentFactor * chaseSpeedAdjustRate;
+            patrolMoveDuration += adjustmentFactor * patrolDurationAdjustRate;
+            wallAvoidanceSensitivity += adjustmentFactor * wallAvoidanceAdjustRate;
+        }
+
+        // Clamp all parameters to their valid ranges
         roamSpeed = Mathf.Clamp(roamSpeed, minRoamSpeed, maxRoamSpeed);
-
-        // Adjust chase speed
-        chaseSpeed += totalReward * chaseSpeedAdjustRate;
         chaseSpeed = Mathf.Clamp(chaseSpeed, minChaseSpeed, maxChaseSpeed);
-
-        // Adjust patrol move duration
-        patrolMoveDuration += totalReward * patrolDurationAdjustRate;
         patrolMoveDuration = Mathf.Clamp(patrolMoveDuration, minPatrolMoveDuration, maxPatrolMoveDuration);
-
-        // Adjust wall avoidance sensitivity
-        wallAvoidanceSensitivity += totalReward * wallAvoidanceAdjustRate;
         wallAvoidanceSensitivity = Mathf.Clamp(wallAvoidanceSensitivity, minWallAvoidanceSensitivity, maxWallAvoidanceSensitivity);
 
         Debug.Log($"Behavior adapted: roamSpeed={roamSpeed}, chaseSpeed={chaseSpeed}, patrolDuration={patrolMoveDuration}, wallAvoidance={wallAvoidanceSensitivity}");
@@ -302,14 +310,14 @@ public class BaseAIModel : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("Performance saved: " + totalReward);
     }
-
+    // Restarts episode
     void RestartEpisode()
     {
-        // Reset variables and state, respawn as needed
-        InitializeEpisode();
+        totalReward = 0f;
+        reward = 0f;
+        wallPoints = 0f;
+        episodeTimer = 0f;
         testManager.SpawnRandomPositions();
-
-        // I'll implement respawn logic after game manager is implemented
     }
     // Resets all stats
     void InitializeEpisode()
@@ -328,10 +336,10 @@ public class BaseAIModel : MonoBehaviour
     }
     private string GetFilePath()
     {
-#if UNITY_EDITOR
-        return Application.dataPath + "/Data/SavedDataBase.csv";
-#else
-        return Application.persistentDataPath + "/SavedDataBase.csv;
-#endif
+        #if UNITY_EDITOR
+            return Application.dataPath + "/Data/SavedDataNew.csv";
+        #else
+        return Application.persistentDataPath + "/SavedDataNew.csv;
+        #endif
     }
 }
