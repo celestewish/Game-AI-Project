@@ -74,8 +74,8 @@ public class TestManager : MonoBehaviour
         // enemy.position = new Vector3(-20f, 0.5f, -20f);
 
 
-        player.position = playerPosition;
-        enemy.position = enemyPosition;
+        //player.position = playerPosition;
+        //enemy.position = enemyPosition;
         for (int i = 0; i < walllControl.Length; i++)
         {
             walllControl[i].MoveWalls();
