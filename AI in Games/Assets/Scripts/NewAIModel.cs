@@ -1,4 +1,8 @@
 using UnityEngine;
+using System.IO;
+using System.Collections.Generic;
+using NUnit.Framework;
+using System;
 
 public class NewAIModel : MonoBehaviour
 {
@@ -62,11 +66,14 @@ public class NewAIModel : MonoBehaviour
 
     public TestManager testManager;
 
+    public string filePath;
 
 
     void Start()
     {
         InitializeEpisode();
+        filePath = GetFilePath();
+        File.WriteAllText(filePath, "");
     }
 
     void Update()
@@ -134,7 +141,7 @@ public class NewAIModel : MonoBehaviour
     // Title
     void PickNewRoamDirection()
     {
-        Vector2 randomCircle = Random.insideUnitCircle * roamRadius;
+        Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * roamRadius;
         roamDirection = new Vector3(randomCircle.x, 0, randomCircle.y).normalized;
         roamTimer = roamTime;
     }
@@ -204,7 +211,7 @@ public class NewAIModel : MonoBehaviour
     // Picks a new direction based on a radius
     void PickNewPatrolDirection()
     {
-        Vector2 randomCircle = Random.insideUnitCircle * patrolRadius;
+        Vector2 randomCircle = UnityEngine.Random.insideUnitCircle * patrolRadius;
         Vector3 target = lastKnownPlayerPos + new Vector3(randomCircle.x, 0, randomCircle.y);
         patrolDirection = (target - transform.position).normalized;
         patrolTimer = patrolMoveDuration;
@@ -255,6 +262,8 @@ public class NewAIModel : MonoBehaviour
     void EndEpisode()
     {
         totalReward = Mathf.Clamp(totalReward, -1f, 5f);
+
+        File.AppendAllText(filePath, $"{episodeTimer}{Environment.NewLine}");
 
         AdaptBehavior();
 
@@ -324,5 +333,13 @@ public class NewAIModel : MonoBehaviour
         patrolTimer = 0f;
         patrolDirection = Vector3.zero;
         investigateTimer = 0f;
+    }
+    private string GetFilePath()
+    {
+        #if UNITY_EDITOR
+            return Application.dataPath + "/Data/SavedDataNew.csv";
+        #else
+        return Application.persistentDataPath + "/SavedDataNew.csv;
+        #endif
     }
 }
