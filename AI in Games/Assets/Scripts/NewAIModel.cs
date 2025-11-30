@@ -308,6 +308,7 @@ public class NewAIModel : MonoBehaviour
         reward = 0f;
         wallPoints = 0f;
         episodeTimer = 0f;
+        testManager.SpawnRandomPositions();
     }
     // Resets all stats
     void InitializeEpisode()
@@ -325,4 +326,3 @@ public class NewAIModel : MonoBehaviour
         investigateTimer = 0f;
     }
 }
-
