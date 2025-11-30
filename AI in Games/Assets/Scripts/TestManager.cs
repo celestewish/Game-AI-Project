@@ -11,6 +11,8 @@ public class TestManager : MonoBehaviour
     public Transform player;
     public Transform enemy;
 
+    public WalllControl[] walllControl;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +22,10 @@ public class TestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentTrial == numberOfTrials)
+        {
+            Application.Quit();
+        }
     }
 
     public void SpawnRandomPositions()
@@ -30,5 +36,10 @@ public class TestManager : MonoBehaviour
 
         player.position = playerPosition;
         enemy.position = enemyPosition;
+        for (int i = 0; i < walllControl.Length; i++)
+        {
+            walllControl[i].MoveWalls();
+        }
+        currentTrial++;
     }
 }

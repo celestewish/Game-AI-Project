@@ -9,10 +9,7 @@ public class WalllControl : MonoBehaviour
     public int max = 180;
     void Start()
     {
-        WallVisible();
-        randomAngle = Random.Range(min, max);
-        //random wall y position at game start   
-        transform.rotation = Quaternion.Euler(new Vector3(0, randomAngle, 0));
+        MoveWalls();
     }
     public void WallVisible()
     {
@@ -27,5 +24,12 @@ public class WalllControl : MonoBehaviour
             gameObject.SetActive(true);
         }
 
+    }
+    public void MoveWalls()
+    {
+        WallVisible();
+        randomAngle = Random.Range(min, max);
+        //random wall y position at game start   
+        transform.rotation = Quaternion.Euler(new Vector3(0, randomAngle, 0));
     }
 }
