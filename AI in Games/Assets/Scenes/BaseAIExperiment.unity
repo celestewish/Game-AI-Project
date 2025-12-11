@@ -682,6 +682,171 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4f84bb252186194b998e29147865969, type: 3}
+--- !u!114 &979657718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5132568933381878059, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1360655760469402760, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2986077740280245117, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3018912094863744898, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9088191305587893520, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657723 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9166912888227942847, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657724 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946411568100486717, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6006418360199037672, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3621687345144752454, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8682136544421490128, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8124433165604514106, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9200524424170566388, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4380021971921932129, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657731 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5052373406964787164, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
+--- !u!114 &979657732 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8597892864311313553, guid: d4f84bb252186194b998e29147865969, type: 3}
+  m_PrefabInstance: {fileID: 979657717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f2ee2c52398254ea1cf66b7bcc2f7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WalllControl
 --- !u!1 &1034745359
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,11 +1260,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f38b0f7ac37635449df4049e5cf12cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestManager
-  numberOfTrials: 500
+  numberOfTrials: 156
   minimumDistance: 4
   player: {fileID: 1828138359164412454}
   enemy: {fileID: 7407078107293567356}
-  walllControl: []
+  walllControl:
+  - {fileID: 979657732}
+  - {fileID: 979657731}
+  - {fileID: 979657730}
+  - {fileID: 979657729}
+  - {fileID: 979657728}
+  - {fileID: 979657727}
+  - {fileID: 979657726}
+  - {fileID: 979657725}
+  - {fileID: 979657724}
+  - {fileID: 979657723}
+  - {fileID: 979657722}
+  - {fileID: 979657721}
+  - {fileID: 979657720}
+  - {fileID: 979657719}
+  - {fileID: 979657718}
 --- !u!4 &1857766841
 Transform:
   m_ObjectHideFlags: 0
@@ -1782,6 +1962,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5633089925281948427, guid: ca38f66cad849d0419ab5a09d82cfa5f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7407078107293567361}
+    - targetCorrespondingSourceObject: {fileID: 5633089925281948427, guid: ca38f66cad849d0419ab5a09d82cfa5f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7407078107293567366}
   m_SourcePrefab: {fileID: 100100000, guid: ca38f66cad849d0419ab5a09d82cfa5f, type: 3}
 --- !u!1 &7407078107293567354 stripped
 GameObject:
@@ -1795,14 +1978,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7407078107293567354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f753f331542f25b41bb1d6c62cec6962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseAIModel
   chaseDistance: 10
   investigateTime: 10
-  episodeTimeLimit: 30
+  episodeTimeLimit: 5
   player: {fileID: 1828138359164412454}
   roamSpeed: 10
   roamTime: 2
@@ -1849,6 +2032,44 @@ MonoBehaviour:
   lastCatchTime: -1
   caughtCounterText: {fileID: 1738447171}
   lastCatchTimeText: {fileID: 305413498}
+--- !u!114 &7407078107293567366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7407078107293567354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc7aaedb22147c44a2b5ce73ceddb39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewAIModel
+  chaseDistance: 5
+  investigateTime: 5
+  episodeTimeLimit: 5
+  player: {fileID: 1828138359164412454}
+  roamSpeed: 15
+  roamTime: 2
+  roamRadius: 5
+  chaseSpeed: 20
+  patrolSpeed: 15
+  patrolRadius: 20
+  patrolMoveDuration: 2
+  maxRoamSpeed: 20
+  minRoamSpeed: 1
+  roamSpeedAdjustRate: 0.1
+  maxChaseSpeed: 30
+  minChaseSpeed: 2
+  chaseSpeedAdjustRate: 0.2
+  maxPatrolMoveDuration: 5
+  minPatrolMoveDuration: 1
+  patrolDurationAdjustRate: 0.1
+  maxWallAvoidanceSensitivity: 1
+  minWallAvoidanceSensitivity: 0.01
+  wallAvoidanceAdjustRate: 0.001
+  wallAvoidanceDistance: 1
+  testManager: {fileID: 1857766840}
+  filePath: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
